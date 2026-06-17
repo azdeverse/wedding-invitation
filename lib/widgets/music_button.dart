@@ -11,11 +11,7 @@ class MusicButton extends StatefulWidget {
 }
 
 class _MusicButtonState extends State<MusicButton> {
-
-
-final player = MusicService.player;
-
-  
+  final player = MusicService.player;
 
   @override
   void initState() {
@@ -25,14 +21,14 @@ final player = MusicService.player;
   }
 
  Future<void> startMusic() async {
- if (MusicService.started) return;
+  if (MusicService.started) {
+    setState(() {});
+    return;
+  }
 
   MusicService.started = true;
 
-  await player.setReleaseMode(
-    ReleaseMode.loop,
-  );
-
+  await player.setReleaseMode(ReleaseMode.loop);
   await player.setVolume(0.35);
 
   await player.play(
@@ -43,23 +39,25 @@ final player = MusicService.player;
     MusicService.isPlaying = true;
   });
 }
-
 Future<void> toggleMusic() async {
   if (MusicService.isPlaying) {
     await player.pause();
+
+    setState(() {
+      MusicService.isPlaying = false;
+    });
   } else {
     await player.resume();
+
+    setState(() {
+      MusicService.isPlaying = true;
+    });
   }
-
-  setState(() {
-    MusicService.isPlaying = !MusicService.isPlaying;
-  });
 }
-
-@override
-void dispose() {
-  super.dispose();
-}
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,18 +69,15 @@ void dispose() {
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          border: Border.all(
-            color: AppColors.primaryGold,
-            width: 1.5,
-          ),
+          border: Border.all(color: AppColors.primaryGold, width: 1.5),
         ),
         child: Icon(
-  MusicService.isPlaying
-      ? Icons.music_note_rounded
-      : Icons.music_off_rounded,
-  color: AppColors.primaryGold,
-  size: 20,
-),
+          MusicService.isPlaying
+              ? Icons.music_note_rounded
+              : Icons.music_off_rounded,
+          color: AppColors.primaryGold,
+          size: 20,
+        ),
       ),
     );
   }

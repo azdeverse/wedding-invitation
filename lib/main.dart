@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'screens/splash_screen.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const WeddingInvitationApp());
@@ -16,7 +17,7 @@ class WeddingInvitationApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ali & Mehroh',
+      title: "Jamshid va Nozima | To'y Taklifnomasi",
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
         useMaterial3: true,

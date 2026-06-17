@@ -65,7 +65,8 @@ class _CountdownWidgetState extends State<CountdownWidget> {
         children: [
           Text(
             value,
-            style: GoogleFonts.cormorantGaramond(
+            style: TextStyle(
+                      fontFamily: 'Cormorant',
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),

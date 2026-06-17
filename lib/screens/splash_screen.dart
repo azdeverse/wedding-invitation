@@ -35,16 +35,20 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      forceMaterialTransparency: false,
-  toolbarHeight: 50,
-  backgroundColor: AppColors.background,
-  elevation: 0,
-  leading: Padding(
-    padding: EdgeInsets.only(left: 8),
-    child: MusicButton(),
-  ),
-),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        forceMaterialTransparency: false,
+        toolbarHeight: 80,
+         backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+    elevation: 0,
+    surfaceTintColor: Colors.transparent,
+    shadowColor: Colors.transparent,
+        
+        leading: Padding(
+          padding: EdgeInsets.only(left: 10, top: 10),
+          child: MusicButton(),
+        ),
+      ),
       backgroundColor: AppColors.background,
       body: Center(
         child: SingleChildScrollView(
@@ -56,41 +60,44 @@ class _SplashScreenState extends State<SplashScreen>
                 children: [
                   Text(
                     "Baxt ila",
-                    style: GoogleFonts.cormorantGaramond(
+                    style: TextStyle(
+                      fontFamily: "Cormorant",
                       fontSize: 28,
                       color: AppColors.primaryGold,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-        
+
                   const SizedBox(height: 24),
-        
+
                   Text(
-                    "Ali va Mehroh",
+                    " Jamshid va Nozima",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.cormorantGaramond(
-                      fontSize: 52,
+                    style: TextStyle(
+                      fontFamily: "Cormorant",
+                      fontSize: 50,
                       color: AppColors.textDark,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-        
+
                   const SizedBox(height: 12),
-        
+
                   Text(
                     "nikoh to'yiga taklif etamiz",
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
+                      fontFamily: "Poppins",
                       color: Colors.black54,
                       fontSize: 16,
                     ),
                   ),
-        
+
                   const SizedBox(height: 50),
-        
+
                   GestureDetector(
                     onTap: () async {
                       await _controller.forward();
-        
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -131,7 +138,7 @@ class _SplashScreenState extends State<SplashScreen>
                                     ),
                                   ),
                                 ),
-        
+
                                 const CircleAvatar(
                                   radius: 28,
                                   backgroundColor: Color(0xFFD4AF37),
@@ -150,37 +157,38 @@ class _SplashScreenState extends State<SplashScreen>
                       },
                     ),
                   ),
-        
+
                   const SizedBox(height: 40),
-        
-                 Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.favorite_border,
-              color: AppColors.primaryGold,
-              size: 16,
-            ),
-        
-            const SizedBox(width: 10),
-        
-            Text(
-              "Taklifnomani ochish uchun bosing",
-              style: GoogleFonts.ebGaramond(
-        color: AppColors.primaryGold,
-        fontSize: 18,
-              ),
-            ),
-        
-            const SizedBox(width: 10),
-        
-            Icon(
-              Icons.favorite_border,
-              color: AppColors.primaryGold,
-              size: 16,
-            ),
-          ],
-        )
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.favorite_border,
+                        color: AppColors.primaryGold,
+                        size: 16,
+                      ),
+
+                      const SizedBox(width: 10),
+
+                      Text(
+                        "Taklifnomani ochish uchun bosing",
+                        style: TextStyle(
+                          fontFamily: "EBGaramond",
+                          color: AppColors.primaryGold,
+                          fontSize: 18,
+                        ),
+                      ),
+
+                      const SizedBox(width: 10),
+
+                      Icon(
+                        Icons.favorite_border,
+                        color: AppColors.primaryGold,
+                        size: 16,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

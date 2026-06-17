@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+
 class MusicService {
   static final AudioPlayer player = AudioPlayer();
 
